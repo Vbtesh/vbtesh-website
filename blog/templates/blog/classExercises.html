@@ -1,0 +1,102 @@
+{% extends "blog/base.html" %}
+{% load static %}
+
+{% block scripts %}
+    <script type="text/javascript" src="../../static/blog/jscripts/exercice5.js"></script>
+{% endblock scripts %}
+
+{% block content %}
+    <!-- Column 1 start -->
+    <div id="post">
+        <h1>String Method Demo</h1>
+        <h2>01.11.2019</h2>
+        <p>
+            <input type="text" id="textbox5" size="20"><br>
+            <select id="index">
+                <option selected value="1">First Index</option>
+                <option value="2">Last Index</option>
+            </select><br>
+            <span>Enter character:<input type="text" id="textbox6" size="1"><br></span>
+            <!-- <select id="index">
+                <option selected value="1">First Index</option>
+                <option value="2">Last Index</option>
+            </select><br> -->
+            <button onclick="find_index()">Find Index</button><br>
+            <textarea id="textarea2" cols="20" rows="4">
+                Nothing yet
+            </textarea>
+        </p>
+    </div>
+    <div id="post">
+        <h1>Operating Machine</h1>
+        <h2>01.11.2019</h2>
+        <p>
+            <input type="text" id="textbox1" size="8"><br>
+            <select id="operators">
+                <option selected value="1">+</option>
+                <option value="2">-</option>
+                <option value="3">*</option>
+                <option value="4">/</option>
+                <option value="5">%</option>
+                <option value="6">**</option>
+            </select><br>
+            <input type="text" id="textbox2" size="8"><br>
+            <button onclick="operate()">operate</button><br>
+            <textarea id="textarea1" cols="20" rows="10">
+                0
+            </textarea>
+        </p>
+    </div>
+    <div id="post">
+        <h1>JavaScript Intro</h1>
+        <h2>01.11.2019</h2>
+        <h2>Demo 5-1: Javascript Expression Evaluation</h2>
+        <p><input type="text" id="textbox4" size="32" > = <span id="span1"></span>
+        <p><button onclick="button1click()">Evaluate</button>
+    </div>
+    <div id="post">
+        <h1>Slider font size</h1>
+        <h2>25.10.2019</h2>
+        <p>
+            This slider will change the text below's size. <br> 
+            <input type="range" id="slider_2" min="1" max="72" step="1" value="14" oninput="slider2handler()" />
+            <br>
+            <span id="sized">This message changes size with the slider</span>
+        </p>
+    </div>
+    <div id="post">
+        <h1>Simple name asking script</h1>
+        <h2>25.10.2019</h2>
+        <p>
+            What is your name? 
+            <input type="text" id="name_1" size="20" value="" />
+            <input type="button" onclick="button2click()"id="button_2" value="Validate"/>
+            <br>
+            <span id="reply">Here is where the message will appear.</span>
+        </p>
+    </div>
+    <div id="post">
+        <h1>Buttons, lists and text boxes</h1>
+        <h2>25.10.2019</h2>
+        <p>Just a test button</p>
+        <input type="button" id="button_1" value="First Button"/>
+        
+        <!-- List selection -->
+        <p><br> This is my food list:</p>
+        <select id="list_1">
+            <option value="1" selected>Carrots</option>
+            <option value="2">Lasagna</option>
+            <option value="3">Anything else</option>
+        </select>
+        
+        <!-- Range -->
+        <p><br>Just a simple 10 range slider</p> 
+        <input type="range" id="slider_1" min="0" max="10" step="1" value="3" />  
+        
+        <!-- Password -->
+        <p><br>Passord please: <input type="password"/></p>
+        <!-- File upload -->
+        <p><br> Upload tracklist: <input type="file"/></p>
+    </div>
+    <!-- Column 1 end -->
+{% endblock content %}

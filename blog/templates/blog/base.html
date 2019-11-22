@@ -1,0 +1,75 @@
+{% load static %}
+{% load bootstrap4 %}
+<!DOCTYPE html >
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link href="https://fonts.googleapis.com/css?family=Fira+Mono|Ubuntu+Mono&display=swap" rel="stylesheet">
+
+	<!--<script type="text/javascript" src=""></script> -->
+	{% block scripts %}{% endblock %}
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{% static 'blog/css/main.css' %}">
+	<!--<link rel="stylesheet" type="text/css" href="{% static 'blog/css/main.css' %}">-->
+
+    {% if title %}
+        <title>Vbtesh Blog - {{ title }}</title>
+    {% else %}
+        <title>Vbtesh Blog</title>
+    {% endif %}
+</head>
+<body>
+<div id="topbar">
+	<ul> 
+		{% if user.is_authenticated %}
+			<li><a href="{% url "profile" %}" > Profile </a></li>
+			<li><a href="{% url "logout" %}" > Log Out </a></li>
+		{% else %}
+			<li><a href="{% url "login" %}" > Log In </a></li>
+			<li><a href="{% url "register" %}" > Register </a></li>
+		{% endif %}
+	</ul> 
+</div>
+<div id="header">
+	<h1>Victor's Blog</h1>
+	<h2>This blog summarises thoughts, interests and projects. </h2>
+	
+	<ul> 
+		<li><a href={% url "blog-home" %} > Home </a></li>
+		<li><a href="#" > Research </a></li>
+		<li><a href= {% url "blog-compsci" %} > Computer Science </a></li>
+		<li><a href= {% url "blog-exercises" %} > Class Exercises </a></li>
+		<li><a href= {% url "blog-policysimulation" %} > Policy Simulation </a></li>
+	</ul>
+
+</div>
+<div class="colmask leftmenu">
+	<div class="colleft">
+		<div class="col1">
+			<!-- Column 1 start -->
+			{% if messages %}
+				{% for message in messages %}
+					<div class="alert-{{ message.tags }}">
+						{{ message }}
+					</div>
+				{% endfor %}
+			{% endif %}
+            {% block content %}{% endblock %}
+			<!-- Column 1 end -->
+		</div>
+		<div class="col2">
+			<!-- Column 2 start -->
+
+			<!-- Column 2 end -->
+		</div>
+	</div>
+</div>
+<div id="footer">
+</div>
+
+</body>
+</html>

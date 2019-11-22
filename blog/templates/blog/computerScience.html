@@ -1,0 +1,16 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+    {% for post in csPosts %}
+    <div class="post">
+        <h1> {{ post.title }} </h1>
+        <h2> {{ post.author }} - {{ post.date_posted|date:"F d, Y" }} - {{ post.language }} </h2>
+        <p> {{ post.description }}<br>Features:</p>
+        <ul>
+            {% for feature in post.features %}
+                <li> {{ feature }} </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+{% endblock content %}
